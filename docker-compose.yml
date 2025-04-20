@@ -1,0 +1,22 @@
+services:
+  rssence:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rssence
+    volumes:
+      - rssence_data:/app/data
+      - ./config.toml:/app/config.toml
+    restart: always
+
+  nginx:
+    image: nginx:alpine
+    container_name: rssence-nginx
+    volumes:
+      - rssence_data:/usr/share/nginx/html:ro  # Serve the XML files
+    ports:
+      - "7070:80"  # Expose Nginx on port 8080
+    restart: always
+
+volumes:
+  rssence_data:

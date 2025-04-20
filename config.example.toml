@@ -1,0 +1,12 @@
+# API key, URL, and model for the AI service
+api_key = "<key>"
+api_url = "<url>"
+ai_model = "<model>"
+
+# Monitoring frequency in seconds
+poll_interval = 300
+
+# List of RSS feed URLs to monitor
+feeds = [
+    "https://example.com/rss",
+]
